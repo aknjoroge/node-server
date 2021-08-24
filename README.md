@@ -1,4 +1,4 @@
-# Project Title
+### Project Title
 
 ## Node js startup Server
 
@@ -77,8 +77,8 @@ if (request.url === "/") {
 
 ## Author
 
-Alexander karanja @ Techkey
-[@Twitter](https://twitter.com/Techkey_co)
+Alexander karanja
+[@Twitter](https://twitter.com/aknjoroge)
 
 ## License
 
