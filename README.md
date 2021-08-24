@@ -1,6 +1,8 @@
 # Project Title
 
-Node js beginner Server
+## Node js startup Server
+
+<br/>
 
 ## Description
 
@@ -10,55 +12,74 @@ A simple start up server with routing and static html rendering.
 
 ### Dependencies
 
-- nodejs. Run `node -v` to confirm node is installed
+- nodejs.
+
+Run `node -v` to confirm node is installed
+
+```
+node -v
+v14.16.0
+```
 
 ### Installing
 
-1. Run `npm install`
+1.  `npm install`
 
 ### Executing program
 
 The program can be executed through npm script
 
-2. Run `npm start`
+2.  `npm start`
 
-```
-code blocks for commands
-```
+### Flow
 
-## Help
+I use fs (file system) module to read the static html files from the static folder
 
-Any advise for common problems or issues.
-
-```
-command to run if program contains helper info
+```javascript
+let fs = require("fs");
 ```
 
-## Authors
+`fs` has both synchronous and Asynchronous file reading method, in this project i use the synchronous method
 
-Contributors names and contact info
+```javascript
+let data = fs.readFileSync(`${__dirname}/static/root.html`, "utf-8");
+```
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+For A **large** project its better to use the Asynchronous method of fs
 
-## Version History
+```javascript
+fs.readFile(`${__dirname}/static/root.html`, "utf-8", function (error, data) {
+  /* data error */
+});
+```
 
-- 0.2
-  - Various bug fixes and optimizations
-  - See [commit change]() or See [release history]()
-- 0.1
-  - Initial Release
+The server runs on port `2000` using the http module, if another process is using the port change it to any another number
+
+```javascript
+server.listen(2000, "127.0.0.1", function () {
+  console.log("server started");
+});
+```
+
+The log message is displayed once the server has started
+
+Routes are rendered using the request url
+
+```javascript
+if (request.url === "/") {
+  /*Code */
+}
+```
+
+## Etc
+
+> If you have any advise or problems about the code feel free to fork it and contribute.
+
+## Author
+
+Alexander karanja @ Techkey
+[@Twitter](https://twitter.com/Techkey_co)
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-
-- [awesome-readme](https://github.com/matiassingers/awesome-readme)
-- [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-- [dbader](https://github.com/dbader/readme-template)
-- [zenorocha](https://gist.github.com/zenorocha/4526327)
-- [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+This project is licensed under the [MIT](https://opensource.org/licenses/MIT) License;
