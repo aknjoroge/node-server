@@ -2,8 +2,6 @@
 
 ## Node js startup Server
 
-<br/>
-
 ## Description
 
 A simple start up server with routing and static html rendering.
